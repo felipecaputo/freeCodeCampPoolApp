@@ -7,7 +7,10 @@ var passport = require('passport');
 var session = require('express-session');
 
 var app = express();
-require('dotenv').load();
+if (process.env.NODE_ENV != 'production') {
+	require('dotenv').load();
+}
+
 require('./app/config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
@@ -29,6 +32,6 @@ app.use(passport.session());
 routes(app, passport);
 
 var port = process.env.PORT || 8080;
-app.listen(port,  function () {
+app.listen(port, function() {
 	console.log('Node.js listening on port ' + port + '...');
 });
