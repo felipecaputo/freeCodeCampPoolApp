@@ -2,6 +2,7 @@
 
 var path = process.cwd();
 var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
+var PoolsController = require('../controllers/poolsController');
 
 module.exports = function (app, passport) {
 
@@ -12,6 +13,11 @@ module.exports = function (app, passport) {
 			res.redirect('/login');
 		}
 	}
+
+	
+	
+	app.route('/api/pools')
+		.get(PoolsController.getPools)
 
 	var clickHandler = new ClickHandler();
 
