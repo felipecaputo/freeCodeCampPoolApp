@@ -1,1 +1,1 @@
-var app = angular.module('pooApp', []);
+var app = angular.module('poolsApp', []);
