@@ -1,25 +1,35 @@
-function PoolsListController($scope) {
+function PoolsListController($scope, poolService) {
     var ctrl = this;
 
+    poolService.getPools();
+
+    $scope.$watch( 
+        function() { return poolService.poolsList },
+        function() { console.log('updated pool list', poolService.poolsList); ctrl.poolsList = poolService.poolsList }  )
+    
     ctrl.poolsList = [
         {
+            id: 1,
             title: "Do you prefer React or Angular?",
-            author: { displayName : "Felipe Caputo" },
+            author: { userName: "felipecaputo", displayName : "Felipe Caputo" },
             publishDate: new Date(2017, 06, 01, 11, 2)
         },
         {
+            id: 4,
             title: "Wich is the best cook in the world?",
-            author: { displayName : "Léla Caputo" },
+            author: { userName: "lelacaputo", displayName : "Léla Caputo" },
             publishDate: new Date(2017, 06, 01, 11, 2)
         },
         {
+            id: 3,
             title: "Best Assassin's Creed game ever?",
-            author: { displayName : "Felipe Caputo" },
+            author: { userName: "felipecaputo", displayName : "Felipe Caputo" },
             publishDate: new Date(2017, 06, 01, 11, 2)
         },
         {
+            id: 2,
             title: "Which is the best RPG game?",
-            author: { displayName : "Felipe Caputo" },
+            author: { userName: "felipecaputo", displayName : "Felipe Caputo" },
             publishDate: new Date(2017, 06, 01, 11, 2)
         }
     ]

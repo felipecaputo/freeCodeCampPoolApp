@@ -202,3 +202,29 @@ span {
 	display: inline;
 	margin: 0;
 }
+
+/******** pools component styling *************/
+.pool-list-card {
+	padding: 10px 5px 10px 10px;
+	border-bottom: 10px;
+	border: 2px solid #D0D0FF;
+	border-radius: 10px; 
+	margin-top: 6px;
+	background-color: rgba(100,100,180,0.3);
+}
+
+.pool-list-data {
+	font-size: 80%;
+}
+
+.pool-list-data .author-name {
+	padding-right: 100px; 
+}
+
+.pool-list-title {
+	font-size: 140%;
+}
+
+.main-announce {
+	margin: 0px;
+}

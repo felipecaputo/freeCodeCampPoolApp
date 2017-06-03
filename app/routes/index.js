@@ -21,11 +21,6 @@ module.exports = function (app, passport) {
 
 	var clickHandler = new ClickHandler();
 
-	app.route('/')
-		.get(function (req, res) {
-			res.sendFile(path + '/public/index.html');
-		});
-
 	app.route('/login')
 		.get(function (req, res) {
 			res.sendFile(path + '/public/login.html');
@@ -60,4 +55,10 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, clickHandler.getClicks)
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
+
+	
+	app.route('*')
+		.get(function (req, res) {
+			res.sendFile(path + '/public/index.html');
+		});
 };

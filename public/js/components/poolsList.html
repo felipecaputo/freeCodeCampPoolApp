@@ -1,11 +1,12 @@
 <div class="container">
-    <div class='row pool-list-card' ng-repeat="pool in ctrl.poolsList">
-        <div class="row pool-list-title">{{pool.title}}</div>
-        <div class="row">
-            <div class="col-sm-4 col-md-2"><strong>Author:</strong></div>
-            <div class="col-sm-8 col-md-5">{{ pool.author.displayName }}</div>
-            <div class="col-sm-4 col-md-2"><strong>Published in: </strong> </div>
-            <div class="col-sm-8 col-md-3">{{ pool.publishDate | date : short }}</div>
+    <h3>Current open pools:</h3>
+    <div class='pool-list-card' ng-repeat="pool in ctrl.poolsList">
+        <div class="pool-list-title"><a ng-href="#/pool/{{pool.id}}">{{pool.title}}</a></div>
+        <div class="pool-list-data">
+            <span class=""><strong>Author:</strong></span>
+            <span class="author-name">{{ pool.author.displayName }}</span>
+            <span class=""><strong>Published in: </strong> </span>
+            <span class="">{{ pool.publishDate | date : short }}</span>
         </div>
     </div>
 </div>
